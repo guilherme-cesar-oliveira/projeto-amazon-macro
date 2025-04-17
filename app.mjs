@@ -8,6 +8,19 @@ import sharp from 'sharp';
 import readline from 'readline'
 import fs from 'fs'
 
+function criarPastaImgSeNaoExistir() {
+    const pastaImg = path.join(__dirname, 'img');
+  
+    if (!fs.existsSync(pastaImg)) {
+      fs.mkdirSync(pastaImg);
+      console.log('Pasta "img" criada com sucesso!');
+    } else {
+      console.log('A pasta "img" já existe.');
+    }
+}
+  
+criarPastaImgSeNaoExistir();
+
 function limparPasta(diretorio) {
     if (!fs.existsSync(diretorio)) {
         console.error("❌ Diretório não encontrado:", diretorio);
